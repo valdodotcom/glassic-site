@@ -1,11 +1,11 @@
 import AboutSection from "./home-page-sections/About";
-import ProductsSection from "./home-page-sections/Products";
+import CategoriesSection from "./home-page-sections/AllCategories";
 import ContactSection from "./home-page-sections/Contact";
 
 export default function HomePage() {
     return <section>
     <h1>Glassic Plaques</h1>
-    <div><ProductsSection /></div>
+    <div><CategoriesSection /></div>
     <div><AboutSection /></div>
     <div><ContactSection/></div>
     </section>
