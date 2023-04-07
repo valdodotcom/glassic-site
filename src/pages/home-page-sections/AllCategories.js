@@ -34,9 +34,9 @@ export default function CategoriesSection() {
   return (
     <Card>
       <h2>Our Categories</h2>
-      <CategoryList categories={loadedCategories} />
+        <CategoryList categories={loadedCategories} />
       <div>
-        <Link to="/products">Shop All Products</Link>
+        <Link to="/all-products">Shop All Products</Link>
       </div>
     </Card>
   );

@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
-import ProductList from "../components/products/ProductList";
+import { useParams } from "react-router-dom";
+import ProductList from "../../components/products/ProductList";
+import Card from "../../components/ui/Card";
 
-export default function AllProductsPage() {
+export default function ProductListPage() {
+  const { categoryId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [loadedProducts, setLoadedProducts] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('https://glassic-site-default-rtdb.firebaseio.com/products.json')
+    fetch(`https://glassic-site-default-rtdb.firebaseio.com/categories/${categoryId}/products.json`)
       .then(response => response.json())
       .then(data => {
         const products = [];
@@ -21,7 +24,7 @@ export default function AllProductsPage() {
         setIsLoading(false);
         setLoadedProducts(products);
       });
-  }, [])
+  }, [categoryId])
 
   if (isLoading) {
     return <section>
@@ -30,9 +33,9 @@ export default function AllProductsPage() {
   }
 
   return (
-    <div>
-      <h2>Our Products</h2>
+    <Card>
+      <h2>{categoryId}</h2>
       <ProductList products={loadedProducts} />
-    </div>
-  );
+    </Card>
+  )
 }

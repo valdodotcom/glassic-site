@@ -5,7 +5,7 @@ export default function ProductList({ products }) {
   return (
     <section>
       {products.map((product) => (
-        <Card>
+        <Card key={product.id}>
             <ProductItem key={product.id} product={product} />
         </Card>
       ))}

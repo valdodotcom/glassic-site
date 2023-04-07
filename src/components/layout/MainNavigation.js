@@ -10,7 +10,7 @@ export default function MainNavigation() {
         <nav>
             <ul>
                 <li>
-                    <Link to={'/products'}>Products</Link>
+                    <Link to={'/all-products'}>Products</Link>
                 </li>
                 <li>
                     <Link to={'/cart'}>
@@ -22,9 +22,9 @@ export default function MainNavigation() {
                 <li>
                     <Link to={'/blog'}>Blog</Link>
                 </li>
-                {/* <li>
-                    <Link to={'/contact'}>Contact</Link>
-                </li> */}
+                <li>
+                    <Link to={'/login'}>Log Out</Link>
+                </li>
             </ul>
         </nav>
     </header>
