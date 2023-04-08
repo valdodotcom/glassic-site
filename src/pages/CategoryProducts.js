@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ProductList from "../components/products/ProductList";
 
 export default function CategoryProductsPage({ match }) {
-  console.log(`match: ${match}`);
+//   console.log(`match: ${match}`);
   const categoryId = match;
   const [isLoading, setIsLoading] = useState(true);
   const [loadedProducts, setLoadedProducts] = useState([]);
@@ -47,6 +48,7 @@ export default function CategoryProductsPage({ match }) {
         <h2>All products</h2>
       )}
       <ProductList products={loadedProducts} />
+      <Link to="/all-products">Shop All Products</Link>
     </div>
   );
 }
