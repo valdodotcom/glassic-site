@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 
 export default function CartPage() {
   const cartCtx = useContext(CartContext);
-  // const totalPrice = cartCtx.cartItems.reduce((acc, item) => acc + item.price, 0);
 
   const handleCheckout = () => {
     const orderData = {
       items: cartCtx.cartItems,
-      totalPrice: cartCtx.totalPrice,
+      totalPrice: cartCtx.totalPrice.toFixed(2),
     };
 
     fetch('https://glassic-site-default-rtdb.firebaseio.com/order.json', {
@@ -24,7 +23,7 @@ export default function CartPage() {
       if (!response.ok) {
         throw new Error('Could not add order');
       }
-      // cartCtx.clearCart();
+      cartCtx.clearCart();
     })
     .catch(error => {
       console.error(error);

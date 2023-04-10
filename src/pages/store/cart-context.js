@@ -7,7 +7,8 @@ const CartContext = createContext({
   addToCart: (cartItem) => {},
   removeFromCart: (productId) => {},
   itemIsInCart: (productId) => {},
-  updateItemAmount: (productId, newAmount) => {}
+  updateItemAmount: (productId, newAmount) => {},
+  clearCart: () => {}
 });
 
 export function CartContextProvider(props) {
@@ -43,6 +44,10 @@ export function CartContextProvider(props) {
     });
   }
 
+  function clearCartHandler() {
+    setUserCartItems([]);
+  }
+
   const context = {
     cartItems: userCartItems,
     totalCartItems: userCartItems.length,
@@ -50,7 +55,8 @@ export function CartContextProvider(props) {
     addToCart: addToCartHandler,
     removeFromCart: removeFromCartHandler,
     itemIsInCart: itemIsInCartHandler,
-    updateItemAmount: updateItemAmountHandler
+    updateItemAmount: updateItemAmountHandler,
+    clearCart: clearCartHandler
   };
 
   return <CartContext.Provider value={context}>
