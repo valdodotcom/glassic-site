@@ -1,74 +1,44 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const CartContext = createContext({
-  items: [],
-  totalAmount: 0,
-  addItem: (item) => {},
-  removeItem: (id) => {},
-  clearCart: () => {},
-});
+  cartItems: [],
+  totalCartItems: 0,
+  addToCart: (cartItem) => {},
+  removeFromCart: (productId) => {},
+  itemIsInCart: (productId) => {}
+ });
 
 export function CartContextProvider(props) {
-  const [cartItems, setCartItems] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
+  const [userCartItems, setUserCartItems] = useState([]);
 
-  function addItemHandler(item) {
-    setCartItems((prevItems) => {
-      const updatedItems = [...prevItems];
-      const existingItemIndex = updatedItems.findIndex((cartItem) => cartItem.id === item.id);
-      const existingItem = updatedItems[existingItemIndex];
-
-      if (existingItem) {
-        const updatedItem = {
-          ...existingItem,
-          amount: existingItem.amount + item.amount,
-        };
-        updatedItems[existingItemIndex] = updatedItem;
-      } else {
-        updatedItems.push(item);
-      }
-
-      return updatedItems;
-    });
-
-    setTotalAmount((prevTotalAmount) => prevTotalAmount + item.price * item.amount);
+  function addToCartHandler(cartItem) {
+    setUserCartItems((prevUserCartItems) => {
+      return prevUserCartItems.concat(cartItem);
+    })
   }
 
-  function removeItemHandler(id) {
-    setCartItems((prevItems) => {
-      const existingItemIndex = prevItems.findIndex((item) => item.id === id);
-      const existingItem = prevItems[existingItemIndex];
-      const updatedTotalAmount = totalAmount - existingItem.price;
-  
-      if (existingItem.amount === 1) {
-        return prevItems.filter((item) => item.id !== id);
-      } else {
-        const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
-        const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex] = updatedItem;
-        return updatedItems;
-      }
-      setTotalAmount((prevTotalAmount) => prevTotalAmount - existingItem.price);
-
-    });
-  
-  }
-  
-
-  function clearCartHandler() {
-    setCartItems([]);
-    setTotalAmount(0);
+  function removeFromCartHandler(productId) {
+    setUserCartItems(prevUserCartItems => {
+      return prevUserCartItems.filter(item => item.id !== productId);
+    })
   }
 
-  const cartContext = {
-    items: cartItems,
-    totalAmount: totalAmount,
-    addItem: addItemHandler,
-    removeItem: removeItemHandler,
-    clearCart: clearCartHandler,
+  function itemIsInCartHandler(productId) {
+    return userCartItems.some(item => item.id === productId);
+  }
+
+
+  const context = {
+    cartItems: userCartItems,
+    totalCartItems: userCartItems.length,
+    addToCart: addToCartHandler,
+    removeFromCart: removeFromCartHandler,
+    itemIsInCart: itemIsInCartHandler
   };
 
-  return <CartContext.Provider value={cartContext}>{props.children}</CartContext.Provider>;
+  return <CartContext.Provider value={context}>
+    {props.children}
+  </CartContext.Provider>
 }
 
 export default CartContext;

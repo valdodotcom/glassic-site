@@ -1,29 +1,43 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import CartContext from './cart-context';
 import CartList from '../../components/cart/CartList';
-import styles from './Cart.module.css';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
-  const { items, addItem, removeItem, incrementQuantity, decrementQuantity } = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
+  const totalPrice = cartCtx.cartItems.reduce((acc, item) => acc + item.price, 0);
 
-  const total = items.reduce(
-    (accumulator, item) => accumulator + item.price * item.amount,
-    0
-  );
+  const handleCheckout = () => {
+    const orderData = {
+      items: cartCtx.cartItems,
+      totalPrice: totalPrice,
+    };
+
+    fetch('https://glassic-site-default-rtdb.firebaseio.com/order.json', {
+      method: 'POST',
+      body: JSON.stringify(orderData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Could not add order');
+      }
+      // cartCtx.clearCart();
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  };
 
   return (
-    <section className={styles.cartPage}>
+    <section>
       <h2>Your Cart</h2>
-      <CartList
-        items={items}
-        incrementQuantity={incrementQuantity}
-        decrementQuantity={decrementQuantity}
-        removeItem={removeItem}
-        total={total}
-      />
+      <CartList products={cartCtx.cartItems} />
+      <p>Total: {totalPrice.toFixed(2)}</p>
       <Link to="/checkout">
-        <button>Proceed to Checkout</button>
+      <button onClick={handleCheckout}>Proceed to Checkout</button>
       </Link>
     </section>
   );

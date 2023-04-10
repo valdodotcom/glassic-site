@@ -1,40 +1,22 @@
-import styles from './CartItem.module.css';
+import { useContext, useState } from 'react'
+import CartContext from '../../pages/store/cart-context';
 
-export default function CartItem({
-  item,
-  incrementQuantity,
-  decrementQuantity,
-  removeItem,
-}) {
+export default function CartItem({ product }) {
+  const cartCtx = useContext(CartContext);
+  const itemIsInCart = cartCtx.itemIsInCart(product.id);
+
+  function toggleCartStatusHandler() {
+    cartCtx.removeFromCart(product.id);
+  } 
+
   return (
-    <table>
-        <tbody>
-        <tr>
-        <td>{item.name}</td>
-        <td>${item.price}</td>
-        <td>
-          <button
-            className={styles.quantityButton}
-            onClick={() => decrementQuantity(item.id)}
-            disabled={item.amount === 1}
-          >
-            -
-          </button>
-          <span>{item.amount}</span>
-          <button
-            className={styles.quantityButton}
-            onClick={() => incrementQuantity(item.id)}
-          >
-            +
-          </button>
-        </td>
-        <td>${(item.price * item.amount)}</td>
-        <td>
-          <button onClick={() => removeItem(item.id)}>Remove</button>
-        </td>
-      </tr>
-        </tbody>
-
-    </table>
+    <div>
+      <h3>{product.name}</h3>
+      <img src={product.image} alt={product.name} />
+      <p>Price: ${product.price.toFixed(2)}</p>
+      <p>Amount: {product.amount}</p>
+        <button onClick={toggleCartStatusHandler}>
+          {itemIsInCart ? 'Remove from Cart' : 'Add to Cart'}</button>
+    </div>
   );
 }
