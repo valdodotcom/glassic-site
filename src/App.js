@@ -7,7 +7,7 @@ import Layout from './components/layout/Layout';
 import CheckoutPage from './pages/store/Checkout';
 import AllProductsPage from './pages/AllProducts';
 import CategoryProductsPage from './pages/CategoryProducts';
-// import LoginPage from './pages/sign-in/Login';
+import LoginPage from './pages/sign-in/Login';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path='/login' element={<LoginPage />} />
         {/* <Route path="/products/:categoryId" element={<CategoryProductsPage match="cat1" />}/> */}
       </Routes>
       </Layout>
