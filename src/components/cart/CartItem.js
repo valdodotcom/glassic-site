@@ -11,15 +11,17 @@ export default function CartItem({ product }) {
   }
 
   function decreaseAmountHandler() {
-    setAmount(prevAmount => Math.max(prevAmount - 1, 1));
-    cartCtx.updateItemAmount(product.id, amount - 1);
+    const newAmount = Math.max(amount - 1, 1);
+    setAmount(newAmount);
+    cartCtx.updateItemAmount(product.id, newAmount);
   }
-
+  
   function increaseAmountHandler() {
-    setAmount(prevAmount => Math.min(prevAmount + 1, 10));
-    cartCtx.updateItemAmount(product.id, amount + 1);
+    const newAmount = Math.min(amount + 1, 10);
+    setAmount(newAmount);
+    cartCtx.updateItemAmount(product.id, newAmount);
   }
-
+  
   function amountInputChangeHandler(event) {
     const newAmount = parseInt(event.target.value);
     if (newAmount >= 1 && newAmount <= 10) {
