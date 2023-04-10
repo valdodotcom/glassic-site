@@ -18,7 +18,10 @@ export default function LoginPage () {
 //   };
 
   return (
-    <h2>Login Page</h2>
+    <div>
+        <h2>Login Page</h2>
+        <p>Hello</p>
+    </div>
     // <form onSubmit={handleSubmit}>
     //   <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
     //   <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
