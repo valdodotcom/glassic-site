@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 import Card from "../ui/Card";
 // import ProductItem from "./ProductItem";
