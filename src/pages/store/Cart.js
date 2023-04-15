@@ -13,30 +13,6 @@ export default function CartPage() {
   const [user] = useAuthState(firebaseAuth);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleCheckout = () => {
-    const orderData = {
-      items: cartCtx.cartItems,
-      totalPrice: cartCtx.totalPrice.toFixed(2),
-    };
-
-    fetch('https://glassic-site-default-rtdb.firebaseio.com/order.json', {
-      method: 'POST',
-      body: JSON.stringify(orderData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Could not add order');
-        }
-        // cartCtx.clearCart();
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
   return (
     <section>
       <h2>Your Cart</h2>
@@ -46,7 +22,6 @@ export default function CartPage() {
         <div>
           <CartList products={cartCtx.cartItems} />
           <p>Total: {cartCtx.totalPrice.toFixed(2)}</p>
-          <button onClick={handleCheckout}>Force Checkout</button>
 
           {user ? (
             <Link to="/checkout">
