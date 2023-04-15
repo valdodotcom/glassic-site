@@ -25,7 +25,7 @@ export default function LoginPage({ onLoginSuccess }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCloseModal = () => {
-        setIsModalOpen(false);
+        if (isModalOpen) setIsModalOpen(false);
     };
 
     const handleSubmit = (event) => {

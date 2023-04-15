@@ -9,7 +9,6 @@ export default function HomePage() {
     params = JSON.stringify(params);
     const regex = /(?<=\/)\w+/;
     const categoryId = params.match(regex);
-    console.log(`params: ${categoryId}`);
 
     if (categoryId) {
         return <CategoryRoute />
