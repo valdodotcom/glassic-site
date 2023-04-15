@@ -8,6 +8,7 @@ import Layout from './components/layout/Layout';
 import CheckoutPage from './pages/store/Checkout';
 import AllProductsPage from './pages/AllProducts';
 import LoginPage from './pages/sign-in/Login';
+import Protected from './components/Protected';
 
 function App() {
   return (
@@ -17,10 +18,10 @@ function App() {
         <Route path="/all-products" element={<AllProductsPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/checkout" element={ <Protected> <CheckoutPage /> </Protected> } />
         <Route path='/login' element={<LoginPage />} />
       </Routes>
-      </Layout>
+    </Layout>
   );
 }
 
