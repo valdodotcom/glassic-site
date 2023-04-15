@@ -4,16 +4,9 @@ import 'firebase/compat/auth';
 import { getAuth } from '@firebase/auth';
 
 const firebaseConfig = {
-    // Your project's Firebase configuration here
     apiKey: "AIzaSyDT73fQFTFvAYT_LK55fYLsUQpL60uf0eI",
     authDomain: "glassic-site.firebaseapp.com",
-    databaseURL: "https://glassic-site-default-rtdb.firebaseio.com",
-    projectId: "glassic-site",
-    storageBucket: "glassic-site.appspot.com",
-    messagingSenderId: "174506103865",
-    appId: "1:174506103865:web:65d8cad6d71f3896abe9e8",
-    measurementId: "G-1RFW2J0SKE"
-};
+  };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);

@@ -18,7 +18,6 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path='/login' element={<LoginPage />} />
-        {/* <Route path="/products/:categoryId" element={<CategoryProductsPage match="cat1" />}/> */}
       </Routes>
       </Layout>
   );
