@@ -18,11 +18,11 @@ export default function CategoryList({ categories }) {
   );
 }
 
-export function CategoryRoute() {
-  var params = useParams();
-  params = JSON.stringify(params);
-  const regex = /(?<=\/)\w+/;
-  const categoryId = params.match(regex);
+export function CategoryRoute({ categoryId }) {
+  // var params = useParams();
+  // params = JSON.stringify(params);
+  // const regex = /(?<=\/)\w+/;
+  // const categoryId = params.match(regex);
   // console.log(`params: ${categoryId}`);
   return (
     <Routes>
