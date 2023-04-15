@@ -22,7 +22,7 @@ export default function LoginPage({ onLoginSuccess }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCloseModal = () => {
         setIsModalOpen(false);

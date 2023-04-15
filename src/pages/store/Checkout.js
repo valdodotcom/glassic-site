@@ -1,10 +1,12 @@
 import { useContext, useState } from 'react';
 import CartContext from './cart-context';
 import styles from './Checkout.module.css';
+import { useNavigate } from 'react-router';
 
 export default function CheckoutPage() {
   const cartCtx = useContext(CartContext);
   const [billingInfo, setBillingInfo] = useState({});
+  const navigate = useNavigate();
 
   const handleCheckout = () => {
     const orderData = {
@@ -12,7 +14,6 @@ export default function CheckoutPage() {
       items: cartCtx.cartItems,
       billing: billingInfo // add billingInfo to orderData
     };
-    console.log(orderData);
 
     fetch('https://glassic-site-default-rtdb.firebaseio.com/order.json', {
       method: 'POST',
@@ -25,7 +26,8 @@ export default function CheckoutPage() {
         if (!response.ok) {
           throw new Error('Could not add order');
         }
-        // cartCtx.clearCart();
+        cartCtx.clearCart();
+        navigate('/');
       })
       .catch(error => {
         console.error(error);
