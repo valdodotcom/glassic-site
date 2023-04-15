@@ -50,7 +50,7 @@ export function CartContextProvider(props) {
 
   const context = {
     cartItems: userCartItems,
-    totalCartItems: userCartItems.length,
+    totalCartItems: userCartItems.reduce((total, item) => total + item.amount, 0),
     totalPrice: userCartItems.reduce((total, item) => total + item.price * item.amount, 0),
     addToCart: addToCartHandler,
     removeFromCart: removeFromCartHandler,

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { getAuth } from '@firebase/auth';
 
 const firebaseConfig = {
     // Your project's Firebase configuration here
@@ -14,35 +15,47 @@ const firebaseConfig = {
     measurementId: "G-1RFW2J0SKE"
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseAuth = getAuth(firebaseApp);
 
-export default function LoginPage() {
-      const [email, setEmail] = useState('');
-      const [password, setPassword] = useState('');
+export default function LoginPage({ onLoginSuccess }) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [setIsModalOpen] = useState(false);
 
-      const handleSubmit = (event) => {
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleSubmit = (event) => {
         event.preventDefault();
         firebase.auth().signInWithEmailAndPassword(email, password)
-          .then((userCredential) => {
-            // User authenticated successfully
-            console.log("YESSS");
-          })
-          .catch((error) => {
-            // Error occurred while authenticating user
-            console.log("YAWA");
-          });
-      };
+            .then(() => {
+                // User authenticated successfully
+                handleCloseModal();
+                if (onLoginSuccess) {
+                    onLoginSuccess();
+                }
+            })
+
+            .catch((error) => {
+                // Error occurred while authenticating user
+                setErrorMessage(error.message);
+            });
+    };
 
     return (
         <div>
             <h2>Login Page</h2>
-            <p>Hello</p>
+            {errorMessage && <p>{errorMessage}</p>}
             <form onSubmit={handleSubmit}>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit">Log in</button>
-        </form>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button type="submit">Log in</button>
+            </form>
         </div>
-
     );
 };
+
+export { firebaseAuth };
