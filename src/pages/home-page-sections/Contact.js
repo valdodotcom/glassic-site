@@ -1,9 +1,9 @@
-import Card from '../../components/ui/Card';
+import MainCard from '../../components/ui/MainCard';
 import styles from './Contact.module.css';
 
 export default function ContactSection() {
   return (
-    <Card>
+    <MainCard>
     <section className={styles.contactSection}>
       <h2>Contact Us</h2>
       <div className={styles.contactInfo}>
@@ -39,6 +39,6 @@ export default function ContactSection() {
         <button type="submit">Send</button>
       </form>
     </section>
-    </Card>
+    </MainCard>
   );
 }

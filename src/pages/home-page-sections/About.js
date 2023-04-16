@@ -1,9 +1,9 @@
 import classes from './About.module.css';
-import Card from '../../components/ui/Card';
+import MainCard from '../../components/ui/MainCard';
 
 export default function AboutSection() {
     return (
-        <Card>
+        <MainCard>
       <section className={classes.aboutSection}>
         <h2>About Us</h2>
         <p>We are a team of music lovers and craft enthusiasts who have combined 
@@ -25,6 +25,6 @@ export default function AboutSection() {
         <p>Thank you for choosing Glassics. We look forward to helping you 
             create a one-of-a-kind music display that you can cherish for years to come.</p>
       </section>
-      </Card>
+      </MainCard>
     );
   }

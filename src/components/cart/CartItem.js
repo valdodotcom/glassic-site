@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import CartContext from '../../pages/store/cart-context';
+import classes from './CartItem.module.css';
 
 export default function CartItem({ product }) {
   const cartCtx = useContext(CartContext);
@@ -31,26 +32,32 @@ export default function CartItem({ product }) {
   }
 
   return (
-    <div>
-      <h3>{product.name}</h3>
-      <img src={product.image} alt={product.name} />
-      <p>Price: ${product.price.toFixed(2)}</p>
-      <label htmlFor={`amount-${product.id}`}>Amount:</label>
-      <div className="input-group">
-        <button onClick={decreaseAmountHandler}>-</button>
-        <input
-          type="number"
-          id={`amount-${product.id}`}
-          value={amount}
-          onChange={amountInputChangeHandler}
-          min="1"
-          max="10"
-        />
-        <button onClick={increaseAmountHandler}>+</button>
+    <div className={classes.item}>
+      <div className={classes.image}>
+        <img src={product.image} alt={product.name} />
       </div>
-      <button onClick={toggleCartStatusHandler}>
-        {itemIsInCart ? 'Remove from Cart' : 'Add to Cart'}
-      </button>
+      <div className={classes.content}>
+        <h3>{product.name}</h3>
+        <p>Price: ${product.price.toFixed(2)}</p>
+        <label htmlFor={`amount-${product.id}`}>Amount:</label>
+        <div className={classes.inputGroup}>
+          <button onClick={decreaseAmountHandler}>-</button>
+          <input
+            type="number"
+            id={`amount-${product.id}`}
+            value={amount}
+            onChange={amountInputChangeHandler}
+            min="1"
+            max="10"
+          />
+          <button onClick={increaseAmountHandler}>+</button>
+        </div>
+      </div>
+      <div className={classes.actions}>
+        <button onClick={toggleCartStatusHandler}>
+          {itemIsInCart ? 'Remove from Cart' : 'Add to Cart'}
+        </button>
+      </div>
     </div>
   );
 }

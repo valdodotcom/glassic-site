@@ -1,5 +1,17 @@
-.card {
+.mainCard {
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .subCard {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 20rem;
   }
