@@ -7,11 +7,11 @@ import ContactSection from "./home-page-sections/Contact";
 export default function HomePage() {
     var params = useParams();
     params = JSON.stringify(params);
-    const regex = /(?<=\/)\w+/;
-    const categoryId = params.match(regex);
+    const regex = /\/(\w+)/;
+    const categoryId = params.match(regex)?.[1];
 
     if (categoryId) {
-        return <CategoryRoute />
+        return <CategoryRoute categoryId={categoryId} />
     }
     return <section>
     <h1>Glassic Plaques</h1>

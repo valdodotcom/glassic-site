@@ -1,4 +1,4 @@
-import { Link, Route, Routes, useParams } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Card from "../ui/Card";
 import CategoryItem from "./CategoryItem";
 import CategoryProductsPage from "../../pages/CategoryProducts";
@@ -18,12 +18,7 @@ export default function CategoryList({ categories }) {
   );
 }
 
-export function CategoryRoute() {
-  var params = useParams();
-  params = JSON.stringify(params);
-  const regex = /(?<=\/)\w+/;
-  const categoryId = params.match(regex);
-  // console.log(`params: ${categoryId}`);
+export function CategoryRoute({ categoryId }) {
   return (
     <Routes>
       <Route key={categoryId} path={`/products/${categoryId}`} element={<CategoryProductsPage match={categoryId} />}/>
