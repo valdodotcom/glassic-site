@@ -1,35 +1,27 @@
-// import { useState } from 'react';
-// import { auth } from './firebase'; // Import the Firebase SDK
+import React, { useState } from 'react';
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth';
 
-// export default function LoginPage() {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
+export default function LoginPage () {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-//   const handleLogin = (e) => {
-//     e.preventDefault();
-//     auth.signInWithEmailAndPassword(email, password)
-//       .then((userCredential) => {
-//         // User signed in successfully
-//         const user = userCredential.user;
-//         console.log('User signed in:', user);
-//       })
-//       .catch((error) => {
-//         // Handle sign-in errors
-//         console.error('Sign-in error:', error);
-//       });
-//   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User authenticated successfully
+      })
+      .catch((error) => {
+        // Error occurred while authenticating user
+      });
+  };
 
-//   return (
-//     <form onSubmit={handleLogin}>
-//       <label>
-//         Email:
-//         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-//       </label>
-//       <label>
-//         Password:
-//         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-//       </label>
-//       <button type="submit">Sign in</button>
-//     </form>
-//   );
-// }
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button type="submit">Log in</button>
+    </form>
+  );
+};

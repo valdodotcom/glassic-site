@@ -2,12 +2,12 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import BlogPage from './pages/Blog';
-import CartPage from './pages/cart/Cart';
+import CartPage from './pages/store/Cart';
 import Layout from './components/layout/Layout';
-import CheckoutPage from './pages/cart/Checkout';
+import CheckoutPage from './pages/store/Checkout';
 import AllProductsPage from './pages/AllProducts';
-// import CategoryProductsPage from './pages/CategoryProducts';
-// import LoginPage from './pages/sign-in/Login';
+import CategoryProductsPage from './pages/CategoryProducts';
+import LoginPage from './pages/sign-in/Login';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path='/login' element={<LoginPage />} />
         {/* <Route path="/products/:categoryId" element={<CategoryProductsPage match="cat1" />}/> */}
       </Routes>
       </Layout>
