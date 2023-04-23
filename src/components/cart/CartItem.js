@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import CartContext from '../../pages/store/cart-context';
-import classes from './CartItem.module.css';
+import styles from '../ui/Card.module.css'
 
 export default function CartItem({ product }) {
   const cartCtx = useContext(CartContext);
@@ -32,15 +32,15 @@ export default function CartItem({ product }) {
   }
 
   return (
-    <div className={classes.item}>
-      <div className={classes.image}>
+    <div className={styles.item}>
+      <div className={styles.image}>
         <img src={product.image} alt={product.name} />
       </div>
-      <div className={classes.content}>
+      <div className={styles.content}>
         <h3>{product.name}</h3>
         <p>Price: ${product.price.toFixed(2)}</p>
         <label htmlFor={`amount-${product.id}`}>Amount:</label>
-        <div className={classes.inputGroup}>
+        <div className={styles.actions}>
           <button onClick={decreaseAmountHandler}>-</button>
           <input
             type="number"
@@ -53,7 +53,7 @@ export default function CartItem({ product }) {
           <button onClick={increaseAmountHandler}>+</button>
         </div>
       </div>
-      <div className={classes.actions}>
+      <div className={styles.actions}>
         <button onClick={toggleCartStatusHandler}>
           {itemIsInCart ? 'Remove from Cart' : 'Add to Cart'}
         </button>

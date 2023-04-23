@@ -1,4 +1,4 @@
-import styles from './CategoryItem.module.css'
+import styles from '../ui/Card.module.css'
 
 export default function CategoryItem({ category }) {
   return (
@@ -9,5 +9,6 @@ export default function CategoryItem({ category }) {
     <h3>{category.name}</h3>
     <p>{category.description}</p>
   </div>
+
   );
 }

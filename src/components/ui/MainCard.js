@@ -1,7 +1,7 @@
-import classes from './Card.module.css'
+import styles from './Card.module.css'
 
 export default function MainCard(props) {
-    return <div className={classes.mainCard}>
+    return <div className={styles.mainCard}>
         {props.children}
     </div>
 }

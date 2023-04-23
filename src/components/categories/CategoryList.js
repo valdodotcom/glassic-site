@@ -1,17 +1,18 @@
 import { Link, Route, Routes } from "react-router-dom";
 import CategoryItem from "./CategoryItem";
 import CategoryProductsPage from "../../pages/CategoryProducts";
+import SubCard from "../ui/SubCard";
+import styles from '../ui/Card.module.css'
 
 export default function CategoryList({ categories }) {
-  
   return (
-    <section style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+    <section className={styles.sectionGrid}>
       {categories.map((category) => (
-        <div key={category.id}>
+        <SubCard key={category.id}>
           <Link to={`/products/${category.id}`}>
             <CategoryItem category={category} />
           </Link>
-        </div>
+        </SubCard>
       ))}
     </section>
   );

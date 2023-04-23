@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import CartContext from '../../pages/store/cart-context';
-import styles from './ProductItem.module.css';
+import styles from '../ui/Card.module.css'
 
 export default function ProductItem({ product }) {
   const cartCtx = useContext(CartContext);

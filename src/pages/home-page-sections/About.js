@@ -1,10 +1,10 @@
-import classes from './About.module.css';
+import styles from './About.module.css';
 import MainCard from '../../components/ui/MainCard';
 
 export default function AboutSection() {
     return (
         <MainCard>
-      <section className={classes.aboutSection}>
+      <section className={styles.aboutSection}>
         <h2>About Us</h2>
         <p>We are a team of music lovers and craft enthusiasts who have combined 
             our passions to create unique glass plaques with Apple Music/Spotify song 

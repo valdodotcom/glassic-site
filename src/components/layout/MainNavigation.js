@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { firebaseAuth } from '../../pages/sign-in/Login';
 import CartContext from '../../pages/store/cart-context';
 import { signOut } from 'firebase/auth';
-import classes from './MainNavigation.module.css';
+import styles from './MainNavigation.module.css';
 import Modal from 'react-modal';
 import LoginPage from '../../pages/sign-in/Login';
 
@@ -25,9 +25,9 @@ export default function MainNavigation() {
   };
 
   return (
-    <header className={classes.header}>
+    <header className={styles.header}>
       <Link to={'/'}>
-        <div className={classes.logo}>Glassics</div>
+        <div className={styles.logo}>Glassics</div>
       </Link>
       <nav>
         <ul>
@@ -37,7 +37,7 @@ export default function MainNavigation() {
           <li>
             <Link to={'/cart'}>
               Cart
-              <span className={classes.badge}>{cartItemCount}</span>
+              <span className={styles.badge}>{cartItemCount}</span>
             </Link>
           </li>
           <li>

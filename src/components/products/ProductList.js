@@ -1,13 +1,14 @@
-import MainCard from "../ui/MainCard";
+import SubCard from "../ui/SubCard";
 import ProductItem from "./ProductItem";
+import styles from '../ui/Card.module.css'
 
 export default function ProductList({ products }) {
   return (
-    <section>
+    <section className={styles.sectionGrid}>
       {products.map((product) => (
-        <MainCard key={product.id}>
+        <SubCard key={product.id}>
             <ProductItem key={product.id} product={product} />
-        </MainCard>
+        </SubCard>
       ))}
     </section>
   );
