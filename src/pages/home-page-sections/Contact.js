@@ -3,13 +3,10 @@ import styles from '../../components/ui/Card.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import SubCard from '../../components/ui/SubCard';
 
 export default function ContactSection() {
   const contactItems = [
-    {
-      icon: faMapMarkerAlt,
-      info: "123 Main Street\nAnytown, USA 12345",
-    },
     {
       icon: faEnvelope,
       info: "contact@example.com",
@@ -28,10 +25,10 @@ export default function ContactSection() {
   return (
     <MainCard>
     <h2>Contact Us</h2>
-    <section>
-      <div className={styles.contactInfo}>
+    <p>Accra, Ghana</p>
+    <section className={styles.sectionGrid}>
       {contactItems.map((item, index) => (
-        <div className={styles.contactItem} key={index}>
+        <SubCard className={styles.contactItem} key={index}>
           <FontAwesomeIcon icon={item.icon} />
           {item.link ? (
             <a href={item.link}>
@@ -40,9 +37,8 @@ export default function ContactSection() {
           ) : (
             <p>{item.info}</p>
           )}
-        </div>
+        </SubCard>
       ))}
-      </div>
     </section>
     <form className={styles.contactForm}>
         <h3>Send Us a Message</h3>
