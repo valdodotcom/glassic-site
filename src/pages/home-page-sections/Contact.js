@@ -1,34 +1,50 @@
 import MainCard from '../../components/ui/MainCard';
-import styles from './Contact.module.css';
+import styles from '../../components/ui/Card.module.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 export default function ContactSection() {
+  const contactItems = [
+    {
+      icon: faMapMarkerAlt,
+      info: "123 Main Street\nAnytown, USA 12345",
+    },
+    {
+      icon: faEnvelope,
+      info: "contact@example.com",
+    },
+    {
+      icon: faInstagram,
+      info: "Follow us on Instagram",
+      link: "https://www.instagram.com/ourinstagram",
+    },
+    {
+      icon: faTwitter,
+      info: "Follow us on Twitter",
+      link: "https://www.twitter.com/ourtwitter",
+    },
+  ];
   return (
     <MainCard>
-    <section className={styles.contactSection}>
-      <h2>Contact Us</h2>
+    <h2>Contact Us</h2>
+    <section>
       <div className={styles.contactInfo}>
-        <div className={styles.contactItem}>
-          <i className="fas fa-map-marker-alt"></i>
-          <p>123 Main Street<br />Anytown, USA 12345</p>
+      {contactItems.map((item, index) => (
+        <div className={styles.contactItem} key={index}>
+          <FontAwesomeIcon icon={item.icon} />
+          {item.link ? (
+            <a href={item.link}>
+              <p>{item.info}</p>
+            </a>
+          ) : (
+            <p>{item.info}</p>
+          )}
         </div>
-        <div className={styles.contactItem}>
-          <i className="fas fa-envelope"></i>
-          <p>contact@example.com</p>
-        </div>
-        <div className={styles.contactItem}>
-          <a href="https://www.instagram.com/ourinstagram">
-            <i className="fab fa-instagram"></i>
-            <p>Follow us on Instagram</p>
-          </a>
-        </div>
-        <div className={styles.contactItem}>
-          <a href="https://www.twitter.com/ourtwitter">
-            <i className="fab fa-twitter"></i>
-            <p>Follow us on Twitter</p>
-          </a>
-        </div>
+      ))}
       </div>
-      <form className={styles.contactForm}>
+    </section>
+    <form className={styles.contactForm}>
         <h3>Send Us a Message</h3>
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name" />
@@ -38,7 +54,6 @@ export default function ContactSection() {
         <textarea id="message" name="message"></textarea>
         <button type="submit">Send</button>
       </form>
-    </section>
     </MainCard>
   );
 }
