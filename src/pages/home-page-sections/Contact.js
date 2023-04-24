@@ -1,7 +1,7 @@
 import MainCard from '../../components/ui/MainCard';
 import styles from '../../components/ui/Card.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import SubCard from '../../components/ui/SubCard';
 
