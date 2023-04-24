@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import CategoryList from "../../components/categories/CategoryList";
 import MainCard from "../../components/ui/MainCard";
+import styles from "../../components/ui/Card.module.css"
 
 export default function CategoriesSection() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,8 +36,8 @@ export default function CategoriesSection() {
     <MainCard>
       <h2>Our Categories</h2>
         <CategoryList categories={loadedCategories} />
-      <div>
-        <Link to="/all-products">Shop All Products</Link>
+      <div className={styles.actions}>
+        <Link to="/all-products"><button>Shop All Products</button></Link>
       </div>
      </MainCard>
  );

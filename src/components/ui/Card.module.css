@@ -16,14 +16,19 @@
 
   .sectionGrid {
     display: grid;
-    background-color: grey;
     padding: 10px;
     grid-template-columns: repeat(3, 1fr);
   }
   
   .item {
     margin: 1rem 0;
+    padding: 5px;
   }
+
+  a {
+  text-decoration: none;
+  color: inherit;
+}
   
   .image {
     width: 100%;
@@ -40,7 +45,6 @@
   
   .content {
     text-align: center;
-    padding: 1rem;
   }
   
   .content h3 {
@@ -66,4 +70,8 @@
   .actions button:hover,
   .actions button:active {
     background-color: #ffe2ed;
+  }
+
+  .centreAlign {
+    text-align: center;
   }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProductList from "../components/products/ProductList";
+import styles from "../components/ui/Card.module.css"
 
 export default function CategoryProductsPage({ match }) {
 //   console.log(`match: ${match}`);
@@ -48,7 +49,9 @@ export default function CategoryProductsPage({ match }) {
         <h2>All products</h2>
       )}
       <ProductList products={loadedProducts} />
-      <Link to="/all-products">Shop All Products</Link>
+      <div className={styles.actions}>
+        <Link to="/all-products"><button>Shop All Products</button></Link>
+      </div>
     </div>
   );
 }

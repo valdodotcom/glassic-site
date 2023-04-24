@@ -7,6 +7,7 @@ import { firebaseAuth } from '../../pages/sign-in/Login';
 import Modal from 'react-modal';
 import LoginPage from '../../pages/sign-in/Login';
 import { Link } from 'react-router-dom';
+import styles from '../../components/ui/Card.module.css';
 
 export default function CartPage() {
   const cartCtx = useContext(CartContext);
@@ -21,14 +22,20 @@ export default function CartPage() {
       ) : (
         <div>
           <CartList products={cartCtx.cartItems} />
-          <p>Total: {cartCtx.totalPrice.toFixed(2)}</p>
+          <div className={styles.centreAlign}>
+            <p>Total: {cartCtx.totalPrice.toFixed(2)}</p>
+          </div>
 
           {user ? (
+          <div className={styles.actions}>
             <Link to="/checkout">
               <button>Proceed to Checkout</button>
             </Link>
+          </div>
           ) : (
-            <button onClick={() => setIsModalOpen(true)}>Proceed to Checkout</button>
+            <div className={styles.actions}>
+              <button onClick={() => setIsModalOpen(true)}>Proceed to Checkout</button>
+            </div>
           )}
           {!user && (
             <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
