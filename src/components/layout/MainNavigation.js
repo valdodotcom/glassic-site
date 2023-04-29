@@ -9,7 +9,7 @@ import Modal from 'react-modal';
 import LoginPage from '../../pages/sign-in/Login';
 import altStyles from '../../components/ui/Card.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCartShopping, faShoppingBag, faSignIn, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faShoppingBag, faSignIn, faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 Modal.setAppElement('#root');
 
