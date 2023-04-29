@@ -17,7 +17,7 @@ export default function CheckoutPage() {
       billing: billingInfo // add billingInfo to orderData
     };
 
-    fetch('https://glassic-site-default-rtdb.firebaseio.com/order.json', {
+    fetch('https://glassic-site-default-rtdb.firebaseio.com/orders.json', {
       method: 'POST',
       body: JSON.stringify(orderData),
       headers: {
@@ -86,8 +86,5 @@ export default function CheckoutPage() {
         </SubCard>
       </section>
     </>
-
-
-
   );
 }
