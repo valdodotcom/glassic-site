@@ -1,0 +1,52 @@
+.centreCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+}
+
+.checkoutSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px; */
+  }
+  
+  .billingGrid, .paymentGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+  .checkoutSectionh2 {
+    text-align: center;
+  }
+
+  .checkoutSectionh3 {
+    padding-left: 35px;
+  }
+  
+  label {
+    padding-left: 40px;
+    grid-column: 1 / 2;
+    grid-row: auto;
+    align-self: center;
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"] {
+    grid-column: 2 / 5;
+    grid-row: auto;
+    align-self: center;
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .gridGap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }

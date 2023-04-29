@@ -9,7 +9,7 @@
   }
   
   .logo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
     font-weight: bold;
   }
@@ -23,12 +23,12 @@
   }
   
   .header li {
-    margin-left: 3rem;
+    margin-left: 2.5rem;
   }
   
   .header a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #fcb8d2;
   }
   

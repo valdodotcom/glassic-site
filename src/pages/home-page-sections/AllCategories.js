@@ -27,9 +27,15 @@ export default function CategoriesSection() {
   }, [])
 
   if (isLoading) {
-    return <section>
-      <p>Loading...</p>
-    </section>
+    return (
+      <MainCard>
+        <h2>Our Categories</h2>
+          <p>Loading...</p>
+        <div className={styles.actions}>
+          <Link to="/all-products"><button>Shop All Products</button></Link>
+        </div>
+       </MainCard>
+   );
   }
 
   return (

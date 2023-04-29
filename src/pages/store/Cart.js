@@ -38,7 +38,7 @@ export default function CartPage() {
             </div>
           )}
           {!user && (
-            <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+            <Modal className={styles.customModal} isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
               <LoginPage onLoginSuccess={() => { setIsModalOpen(false); }} onClose={() => setIsModalOpen(false)} />
             </Modal>
           )}

@@ -28,7 +28,7 @@ export default function ProductItem({ product }) {
       <div className={styles.content}>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
-        <p>Price: ${product.price.toFixed(2)}</p>
+        <p>Price: GH₵ {product.price.toFixed(2)}</p>
       </div>
       <div className={styles.actions}>
         <button onClick={toggleCartStatusHandler} className={styles['add-to-cart-btn']}>

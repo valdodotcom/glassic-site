@@ -2,6 +2,9 @@ import { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { getAuth } from '@firebase/auth';
+import SubCard from '../../components/ui/SubCard';
+import styles from '../../components/ui/Card.module.css';
+import altStyles from '../../pages/store/Checkout.module.css';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDT73fQFTFvAYT_LK55fYLsUQpL60uf0eI",
@@ -39,15 +42,25 @@ export default function LoginPage({ onLoginSuccess }) {
     };
 
     return (
-        <div>
-            <h2>Login Page</h2>
+        <>
+        <div className={altStyles.centreCard}>
+        <SubCard>
+            <h2>Login</h2>
             {errorMessage && <p>{errorMessage}</p>}
             <form onSubmit={handleSubmit}>
+                <div className={altStyles.gridGap}>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div className={styles.actions}>
                 <button type="submit">Log in</button>
+                </div>
             </form>
+        </SubCard>
         </div>
+
+        </>
+
     );
 };
 
