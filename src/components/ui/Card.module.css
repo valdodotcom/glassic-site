@@ -74,6 +74,25 @@
     background-color: #ffe2ed;
   }
 
+  .miniActions {
+    text-align: center;
+  }
+  
+  .miniActions button {
+    font: inherit;
+    cursor: pointer;
+    color: #77002e;
+    border: 1px solid #77002e;
+    background-color: transparent;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+  }
+  
+  .miniActions button:hover,
+  .miniActions button:active {
+    background-color: #ffe2ed;
+  }
+
   .centreAlign {
     text-align: center;
   }

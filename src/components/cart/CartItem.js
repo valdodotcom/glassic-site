@@ -40,7 +40,7 @@ export default function CartItem({ product }) {
         <h3>{product.name}</h3>
         <p>Price: GH₵ {product.price.toFixed(2)}</p>
         <p htmlFor={`amount-${product.id}`}>Quantity:</p>
-        <div className={styles.actions}>
+        <div className={styles.miniActions}>
           <button onClick={decreaseAmountHandler}>-</button>
           <input className={styles.amount}
             type="number"
