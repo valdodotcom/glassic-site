@@ -8,6 +8,8 @@ import styles from './MainNavigation.module.css';
 import Modal from 'react-modal';
 import LoginPage from '../../pages/sign-in/Login';
 import altStyles from '../../components/ui/Card.module.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 Modal.setAppElement('#root');
 
@@ -52,6 +54,9 @@ export default function MainNavigation() {
             )}
           </li>
         </ul>
+        <button className={styles.menuButton}>
+          <FontAwesomeIcon icon={faBars}/>
+        </button>
       </nav>
       <Modal className={altStyles.customModal} isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
         <LoginPage onClose={() => setIsModalOpen(false)} onLoginSuccess={handleLoginSuccess} />

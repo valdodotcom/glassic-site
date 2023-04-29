@@ -1,6 +1,6 @@
 .main {
     margin: 3rem auto;
-    width: 99%;
+    width: 90%;
     /* max-width: 45rem; */
   }
 
@@ -8,3 +8,8 @@
     text-align: center;
   }
   
+  @media (max-width: 768px) {
+    .main {
+      width: 94%;
+    }
+  }

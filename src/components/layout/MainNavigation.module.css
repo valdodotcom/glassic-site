@@ -45,3 +45,23 @@
     padding: 0 1rem;
     margin-left: 0.5rem;
   }
+
+  .menuButton {
+    display: none;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  /* Media query for tablet or smaller */
+@media screen and (max-width: 768px) {
+  .header li {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+}
