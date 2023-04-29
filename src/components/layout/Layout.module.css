@@ -1,6 +1,7 @@
 .main {
-    margin: 3rem auto;
+    margin: auto;
     width: 90%;
+    padding-top: 4.5rem;
     /* max-width: 45rem; */
   }
 
@@ -8,8 +9,8 @@
     text-align: center;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .main {
-      width: 94%;
+      width: 98%;
     }
   }

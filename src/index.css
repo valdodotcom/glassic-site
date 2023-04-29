@@ -1,14 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display+SC:wght@700&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', serif;
   margin: auto;
   background-color: #dfdfdf;
 }
 
-h1, h2 {
+h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display SC', serif;
+}
+
+h2 {
   color: #333333;
 }
 

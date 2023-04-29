@@ -9,7 +9,7 @@ import Modal from 'react-modal';
 import LoginPage from '../../pages/sign-in/Login';
 import altStyles from '../../components/ui/Card.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCartShopping, faShoppingBag, faSignIn, faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 Modal.setAppElement('#root');
 
@@ -29,34 +29,39 @@ export default function MainNavigation() {
 
   return (
     <header className={styles.header}>
-      <Link to={'/'}>
-        <div className={styles.logo}>Glassics</div>
-      </Link>
+    <Link to={'/'}>
+      <img className={styles.logo} src="/glassic-icon.png" alt="Glassic Icon" />
+      {/* <span className={styles.logoText}>Glassic Plaques</span> */}
+    </Link>
       <nav>
         <ul>
-          <li>
-            <Link to={'/all-products'}>Products</Link>
-          </li>
-          <li>
-            <Link to={'/cart'}>
-              Cart
-              <span className={styles.badge}>{cartItemCount}</span>
+        <li>
+          <Link to={'/all-products'} className={styles.link}>
+            <FontAwesomeIcon icon={faShoppingBag} />
+            <span className={styles.iconTag}>Products</span>
+          </Link>
+        </li>
+        <li className={styles.cartIcon}>
+        <Link to={'/cart'} className={styles.link}>
+          <FontAwesomeIcon icon={faCartShopping} />
+          <span className={styles.iconTag}>Cart</span>
+          {cartItemCount > 0 && <span className={styles.badge}>{cartItemCount}</span>}
+      </Link>
+        </li>
+        <li>
+          {user ? (
+            <Link onClick={handleLogout} className={styles.link}>
+              <FontAwesomeIcon icon={faSignOut} />
+              <span className={styles.iconTag}>Log Out</span>
             </Link>
-          </li>
-          <li>
-            <Link to={'/blog'}>Blog</Link>
-          </li>
-          <li>
-            {user ? (
-              <Link onClick={handleLogout}>Log Out</Link>
-            ) : (
-              <Link onClick={() => setIsModalOpen(true)}>Log In</Link>
-            )}
-          </li>
+          ) : (
+            <Link onClick={() => setIsModalOpen(true)} className={styles.link}>
+              <FontAwesomeIcon icon={faSignIn} />
+              <span className={styles.iconTag}>Log In</span>
+            </Link>
+          )}
+        </li>
         </ul>
-        <button className={styles.menuButton}>
-          <FontAwesomeIcon icon={faBars}/>
-        </button>
       </nav>
       <Modal className={altStyles.customModal} isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
         <LoginPage onClose={() => setIsModalOpen(false)} onLoginSuccess={handleLoginSuccess} />
