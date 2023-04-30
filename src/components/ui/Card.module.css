@@ -27,6 +27,10 @@
     .sectionGrid {
       grid-template-columns: 1fr;
     }
+
+    h2 {
+      text-align: center;
+    }
   }
   
   .item {

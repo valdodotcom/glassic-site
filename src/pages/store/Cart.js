@@ -18,7 +18,7 @@ export default function CartPage() {
     <section>
       <h2>Your Cart</h2>
       {cartCtx.cartItems.length === 0 ? (
-        <p>No items added yet!</p>
+        <p style={{paddingLeft: '2rem'}}>No items added yet!</p>
       ) : (
         <div>
           <CartList products={cartCtx.cartItems} />

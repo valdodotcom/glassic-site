@@ -29,7 +29,7 @@ export default function CategoriesSection() {
   if (isLoading) {
     return (
       <MainCard>
-        <h2>Our Categories</h2>
+        <h3>Our Categories</h3>
           <p>Loading...</p>
         <div className={styles.actions}>
           <Link to="/all-products"><button>Shop All Products</button></Link>
@@ -40,7 +40,7 @@ export default function CategoriesSection() {
 
   return (
     <MainCard>
-      <h2>Our Categories</h2>
+      <h3>Our Categories</h3>
         <CategoryList categories={loadedCategories} />
       <div className={styles.actions}>
         <Link to="/all-products"><button>Shop All Products</button></Link>

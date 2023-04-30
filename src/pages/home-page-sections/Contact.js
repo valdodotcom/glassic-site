@@ -23,7 +23,7 @@ export default function ContactSection() {
   ];
   return (
     <MainCard>
-    <h2>Contact Us</h2>
+    <h3>Contact Us</h3>
     <section className={styles.sectionGrid}>
       {contactItems.map((item, index) => (
         <SubCard className={styles.contactItem} key={index}>

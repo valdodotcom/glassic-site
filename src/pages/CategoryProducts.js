@@ -44,7 +44,7 @@ export default function CategoryProductsPage({ match }) {
   return (
     <div>
       {categoryId ? (
-        <h2>Products in category: {categoryId}</h2>
+        <h2>Products in category: {categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}</h2>
       ) : (
         <h2>All products</h2>
       )}

@@ -45,7 +45,7 @@ export default function LoginPage({ onLoginSuccess }) {
         <>
         <div className={altStyles.centreCard}>
         <SubCard>
-            <h2>Login</h2>
+            <h3 style={{textAlign: 'center'}}>Login</h3>
             {errorMessage && <p>{errorMessage}</p>}
             <form onSubmit={handleSubmit}>
                 <div className={altStyles.gridGap}>

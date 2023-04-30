@@ -36,7 +36,7 @@ export default function AboutSection() {
             {aboutData.map((section, index) => (
               <SubCard key={index}>
                 <div className={styles.item}>
-                <h2>{section.title}</h2>
+                <h3>{section.title}</h3>
                 <div className={styles.image}>
                   <img src={section.img} alt={section.name} />
                 </div>

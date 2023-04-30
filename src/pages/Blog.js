@@ -9,7 +9,7 @@ export default function BlogPage() {
 
   return (
     <div>
-      <h1>Blog</h1>
+      <h2>Blog</h2>
       <BlogList posts={posts} />
     </div>
   );

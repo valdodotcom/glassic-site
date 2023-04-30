@@ -6,7 +6,7 @@ export default function CategoryItem({ category }) {
       <div className={styles.image}>
         <img src={category.image} alt={category.name} />
       </div>
-    <h3>{category.name}</h3>
+    <h4>{category.name}</h4>
     <p>{category.description}</p>
   </div>
 
