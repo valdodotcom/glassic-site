@@ -49,8 +49,8 @@ export default function LoginPage({ onLoginSuccess }) {
             {errorMessage && <p>{errorMessage}</p>}
             <form onSubmit={handleSubmit}>
                 <div className={altStyles.gridGap}>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                 </div>
                 <div className={styles.actions}>
                 <button type="submit">Log in</button>
