@@ -23,7 +23,7 @@ export default function CartPage() {
         <div>
           <CartList products={cartCtx.cartItems} />
           <div className={styles.centreAlign}>
-            <p>Total: {cartCtx.totalPrice.toFixed(2)}</p>
+            <p>Total: GH₵ {cartCtx.totalPrice.toFixed(2)}</p>
           </div>
 
           {user ? (
